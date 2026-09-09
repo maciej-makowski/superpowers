@@ -1,5 +1,22 @@
 # Superpowers
 
+> [!NOTE]
+> **This is a pruning fork for Hermes Agent installation** (not maintained for other platforms).
+>
+> Hermes' plugin security scanner (`plugins.scan_on_install`) walks the entire clone and reads
+> prose in planning/spec docs and test fixtures as dangerous — fake test tokens, planning text
+> that mentions editing `CLAUDE.md`, `rm -rf` examples in docs, etc. Any CRITICAL finding makes
+> the verdict `dangerous`, which `--force` cannot override, so the pristine upstream repo is
+> un-installable via `hermes plugins install`.
+>
+> This fork removes `tests/`, `docs/superpowers/`, `.opencode/`, `docs/plans/` and
+> `RELEASE-NOTES.md`. Functional content (`skills/`, `hooks/`, `scripts/`, plugin manifests)
+> is untouched. See [docs/UPSTREAM-SYNC.md](docs/UPSTREAM-SYNC.md) for how to merge upstream
+> changes back in while keeping the prune — **run that re-prune after every upstream sync or
+> the scanner will block again.**
+>
+> Everything here is from [obra/superpowers](https://github.com/obra/superpowers) (MIT).
+
 Superpowers is a complete software development methodology for your coding agents, built on top of a set of composable skills and some initial instructions that make sure your agent uses them.
 
 ## Table of Contents
